@@ -1,0 +1,27 @@
+# permissions for end users to edit ippoolpolicies.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: ip-pool-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: ippoolpolicy-editor-role
+rules:
+- apiGroups:
+  - net.techonfire.ir
+  resources:
+  - ippoolpolicies
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - net.techonfire.ir
+  resources:
+  - ippoolpolicies/status
+  verbs:
+  - get

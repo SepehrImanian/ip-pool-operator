@@ -1,0 +1,24 @@
+apiVersion: net.techonfire.ir/v1alpha1
+kind: IPPoolPolicy
+metadata:
+  name: sotoon-edge-egress
+spec:
+  refreshInterval: 30m
+  source:
+    urls:
+      - https://edge.sotoon.ir/ip-list.txt
+  target:
+    namespaceSelector:
+      matchLabels:
+        enforce-ip-allowlist: "true"
+    podSelector:
+      matchLabels:
+        app: nginx
+  policy:
+    types: [Ingress]
+    namePrefix: ippool-
+    ports:
+      - port: 443
+        protocol: TCP
+      - port: 80
+        protocol: TCP
