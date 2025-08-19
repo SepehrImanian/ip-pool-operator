@@ -15,7 +15,7 @@ spec:
       matchLabels:
         app: nginx
   policy:
-    types: [Ingress]
+    types: [Egress]
     namePrefix: ippool-
     ports:
       - port: 443
