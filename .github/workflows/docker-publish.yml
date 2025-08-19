@@ -20,7 +20,7 @@ permissions:
   packages: write
 
 env:
-  IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/ip-pool-operator
+  IMAGE_NAME: ghcr.io/sepehrimanian/ip-pool-operator
 
 jobs:
   build-and-push:
